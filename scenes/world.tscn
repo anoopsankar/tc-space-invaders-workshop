@@ -17,7 +17,11 @@ script = ExtResource("1_k0juu")
 wait_time = 1.46
 autostart = true
 
-[node name="BG" type="Sprite2D" parent="."]
+[node name="BGContainer" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1024)
+autoscroll = Vector2(0, 16)
+
+[node name="BG" type="Sprite2D" parent="BGContainer"]
 scale = Vector2(1.067, 1.067)
 texture = ExtResource("1_nnsk1")
 centered = false

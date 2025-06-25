@@ -5,7 +5,10 @@
 [node name="Player" type="CharacterBody2D"]
 
 [node name="Ship" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3vyb7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.477854, 0.477854)
 polygon = PackedVector2Array(0, -61, 26, -41, 29, -11, 69, 22, 68, 51, 52, 51, 37, 41, 11, 66, -15, 66, -37, 40, -53, 41, -67, 31, -33, -17, -28, -50)
