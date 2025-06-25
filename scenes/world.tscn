@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://b12nenfovykl3"]
+
+[ext_resource type="Script" uid="uid://cvxl2k8sqoku3" path="res://scenes/world.gd" id="1_k0juu"]
+[ext_resource type="Texture2D" uid="uid://bg15b6k7eg6yq" path="res://assets/bg/pixel-space-bg.png" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://da8ybf48lv4d7" path="res://scenes/player.tscn" id="2_rwgxs"]
+[ext_resource type="Script" uid="uid://chi4oprxqf1vt" path="res://scenes/player.gd" id="3_4wyf3"]
+[ext_resource type="AudioStream" uid="uid://bcvmcq0m76mel" path="res://assets/sounds/music.mp3" id="5_71j4m"]
+[ext_resource type="AudioStream" uid="uid://64g4astodpd5" path="res://assets/sounds/explosion-retro.wav" id="6_i7141"]
+[ext_resource type="AudioStream" uid="uid://de8vw3dxjctp2" path="res://assets/sounds/laser-classic.wav" id="7_4mrxx"]
+[ext_resource type="FontFile" uid="uid://dj528axga0to2" path="res://assets/font/ByteBounce.ttf" id="8_4mrxx"]
+[ext_resource type="Texture2D" uid="uid://behvuh6ex8ey0" path="res://assets/heart.png" id="9_7r4gi"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_k0juu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.46
+autostart = true
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(1.067, 1.067)
+texture = ExtResource("1_nnsk1")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_rwgxs")]
+position = Vector2(309, 914)
+script = ExtResource("3_4wyf3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_71j4m")
+volume_db = -17.333
+autoplay = true
+
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_i7141")
+
+[node name="LaserShotSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_4mrxx")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 168.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("8_4mrxx")
+theme_override_font_sizes/font_size = 64
+text = "000000"
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(48, 974)
+texture = ExtResource("9_7r4gi")
+
+[node name="Health" type="Label" parent="."]
+offset_left = 81.0
+offset_top = 955.0
+offset_right = 120.0
+offset_bottom = 994.0
+theme_override_fonts/font = ExtResource("8_4mrxx")
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="fire_laser" from="Player" to="." method="_on_player_fire_laser"]
+[connection signal="hp_down" from="Player" to="." method="_on_player_hp_down"]
+[connection signal="player_killed" from="Player" to="." method="_on_player_player_killed"]

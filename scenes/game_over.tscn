@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjw8op8ibdxyw"]
+
+[ext_resource type="Script" uid="uid://4hld1om2qldu" path="res://scenes/game_over.gd" id="1_wqhvx"]
+[ext_resource type="FontFile" uid="uid://dj528axga0to2" path="res://assets/font/ByteBounce.ttf" id="2_tbwuq"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -33.0
+offset_right = 189.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 96
+text = "GAME OVER"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -92.0
+offset_right = 278.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.784314, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 64
+text = "Press <Fire> to restart"
