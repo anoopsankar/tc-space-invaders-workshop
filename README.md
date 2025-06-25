@@ -6,4 +6,6 @@ I've also added a simple Game Over screen and how to restart the game as well; s
 
 All the assets are available as well.
 
+To run this; install Godot and import the godot.project file into the IDE.
+
 Enjoy!
